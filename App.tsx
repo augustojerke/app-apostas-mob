@@ -5,13 +5,14 @@ import Home from './src/pages/home';
 import { NativeWindStyleSheet } from "nativewind";
 import Cadastro from './src/pages/cadastro';
 import PaginaInicial from './src/pages/pagina-inicial';
+import { RootStackParamList } from './src/types/types';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
 
 enableScreens();
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (

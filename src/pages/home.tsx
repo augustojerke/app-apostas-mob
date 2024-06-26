@@ -1,17 +1,21 @@
-import { Text, View } from "react-native"
+import { Text, View, Alert } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import InputText from "../components/input-text"
 import { TouchableOpacity } from "react-native"
 import { useState } from "react"
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from "../types/types"
 
-export default function Home(navigation: any){
+export default function Home(){
+
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");
 
     async function logar() {
         try {
-            const response = await fetch("http://25.72.46.95:3334/loginUsuario", {
+            const response = await fetch("http://25.1.200.143:3334/loginUsuario", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -24,9 +28,12 @@ export default function Home(navigation: any){
     
             if (response.ok) {
                 const data = await response.json();
-                console.log(data);
-            } else {
-                console.error('Erro na requisição:', response.status, response.statusText);
+                if(data.token){
+                    navigation.navigate("PaginaInicial");
+                }
+                else{
+                    Alert.alert("Login Inválido")
+                }
             }
         } catch (error) {
             console.error('Houve um problema com a operação fetch:', error);
