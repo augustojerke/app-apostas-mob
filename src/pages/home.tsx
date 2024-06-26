@@ -9,20 +9,28 @@ export default function Home(navigation: any){
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");
 
-    async function logar(){
-        await fetch("http://25.72.46.95:3334/loginUsuario",{
-            method: 'POST',
-            body: JSON.stringify({
-                nome: usuario,
-                senha: senha,
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }      
-        })
-        .then((response) => {
-            console.log(response);
-        })
+    async function logar() {
+        try {
+            const response = await fetch("http://25.72.46.95:3334/loginUsuario", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nome: usuario,
+                    senha: senha
+                })
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+            } else {
+                console.error('Erro na requisição:', response.status, response.statusText);
+            }
+        } catch (error) {
+            console.error('Houve um problema com a operação fetch:', error);
+        }
     }
 
 
@@ -30,8 +38,8 @@ export default function Home(navigation: any){
         <SafeAreaView className="flex-1 bg-slate-950 px-10">
             <View className="flex-1 justify-center items-center">
                 <Text className="text-white font-bold text-4xl mb-14">Login BeTchê</Text>
-                <InputText style={{marginBottom: 20}} texto="Usuário" value={usuario} onChange={(e) => setUsuario(e.target.value)}/>
-                <InputText texto="Senha" type="password" value={senha} onChange={(e) => setSenha(e.target.value)}/>
+                <InputText style={{marginBottom: 20}} placeholder="Usuário" value={usuario} onChangeText={(e) => setUsuario(e)}/>
+                <InputText secureTextEntry placeholder="Senha" value={senha} onChangeText={(e) => setSenha(e)}/>
                 <TouchableOpacity onPress={logar} className="bg-white w-full flex h-10 justify-center items-center rounded-xl mt-10">
                     <Text className="font-bold text-xl">
                         Login
