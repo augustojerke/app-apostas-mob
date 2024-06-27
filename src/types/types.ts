@@ -3,4 +3,6 @@ export type RootStackParamList = {
    PaginaInicial: undefined;
    Cadastro: undefined;
    Saldo: { processo: number };
+   Eventos: undefined;
+   Aposta: { evento: number }
  };

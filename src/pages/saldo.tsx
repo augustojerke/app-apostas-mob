@@ -20,7 +20,7 @@ export default function Saldo(){
    async function realizarOperacao(){
 
       try {
-         const response = await fetch("http://25.1.200.143:3334/atualizarSaldo", {
+         const response = await fetch("http://172.30.48.1:3334/atualizarSaldo", {
             method: 'PUT',
             headers: {
                'Content-Type': 'application/json'
