@@ -15,7 +15,7 @@ export default function Home(){
 
     async function logar() {
         try {
-            const response = await fetch("http://25.1.200.143:3334/loginUsuario", {
+            const response = await fetch("http://172.30.48.1:3334/loginUsuario", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -25,6 +25,7 @@ export default function Home(){
                     senha: senha
                 })
             });
+            
     
             if (response.ok) {
                 const data = await response.json();
