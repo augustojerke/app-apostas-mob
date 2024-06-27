@@ -6,6 +6,8 @@ import { NativeWindStyleSheet } from "nativewind";
 import Cadastro from './src/pages/cadastro';
 import PaginaInicial from './src/pages/pagina-inicial';
 import { RootStackParamList } from './src/types/types';
+import { StatusBar } from 'react-native';
+import Saldo from './src/pages/saldo';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -21,7 +23,9 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
         <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false }}/>
         <Stack.Screen name="PaginaInicial" component={PaginaInicial} options={{ headerShown: false }}/>
+        <Stack.Screen name="Saldo" component={Saldo} options={{ headerShown: false }}/>
       </Stack.Navigator>
+      <StatusBar translucent />
     </NavigationContainer>
   );
 }
