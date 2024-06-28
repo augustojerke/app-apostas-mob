@@ -10,7 +10,7 @@ export default function Cadastro(){
 
     async function cadastrar() {
         try {
-            const response = await fetch("http://172.26.176.1:3334/usuario", {
+            const response = await fetch("https://app-apostas-backend.onrender.com/usuario", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

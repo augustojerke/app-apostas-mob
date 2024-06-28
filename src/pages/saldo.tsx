@@ -20,7 +20,7 @@ export default function Saldo(){
    async function realizarOperacao(){
 
       try {
-         const response = await fetch("http://172.26.176.1:3334/atualizarSaldo", {
+         const response = await fetch("https://app-apostas-backend.onrender.com/atualizarSaldo", {
             method: 'PUT',
             headers: {
                'Content-Type': 'application/json'

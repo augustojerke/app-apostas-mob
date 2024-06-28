@@ -16,7 +16,7 @@ export default function PaginaInicial(){
     
     const listarUsuario = async () => {
         try {
-            const response = await fetch("http://172.26.176.1:3334/listarUsuario", {
+            const response = await fetch("https://app-apostas-backend.onrender.com/listarUsuario", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

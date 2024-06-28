@@ -16,7 +16,7 @@ export default function Home(){
 
     async function logar() {
         try {
-            const response = await fetch("http://172.26.176.1:3334/loginUsuario", {
+            const response = await fetch("https://app-apostas-backend.onrender.com/loginUsuario", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -18,7 +18,7 @@ export default function Eventos(){
     async function listarEventos(){
 
         try {
-           const response = await fetch("http://172.26.176.1:3334/eventos", {
+           const response = await fetch("https://app-apostas-backend.onrender.com/eventos", {
               method: 'GET',
               headers: {
                  'Content-Type': 'application/json'

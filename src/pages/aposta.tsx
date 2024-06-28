@@ -25,7 +25,7 @@ export default function Aposta(){
             idConvertido = +id
         }
         try {
-            const response = await fetch("http://172.26.176.1:3334/realizarAposta", {
+            const response = await fetch("https://app-apostas-backend.onrender.com/realizarAposta", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ export default function Aposta(){
 
     async function realizarOperacao(processo: number){
         try {
-           const response = await fetch("http://172.26.176.1:3334/atualizarSaldo", {
+           const response = await fetch("https://app-apostas-backend.onrender.com/atualizarSaldo", {
               method: 'PUT',
               headers: {
                  'Content-Type': 'application/json'
