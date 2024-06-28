@@ -10,7 +10,7 @@ export default function Cadastro(){
 
     async function cadastrar() {
         try {
-            const response = await fetch("http://172.30.48.1:3334/usuario", {
+            const response = await fetch("http://172.26.176.1:3334/usuario", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -24,7 +24,6 @@ export default function Cadastro(){
                 return response.json();
             })
             .then(data => {
-                console.log(data)
                 Alert.alert("Usuário Cadastrado!")
             })
         } catch (error) {

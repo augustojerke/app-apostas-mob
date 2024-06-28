@@ -16,7 +16,7 @@ export default function PaginaInicial(){
     
     const listarUsuario = async () => {
         try {
-            const response = await fetch("http://172.30.48.1:3334/listarUsuario", {
+            const response = await fetch("http://172.26.176.1:3334/listarUsuario", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -25,7 +25,6 @@ export default function PaginaInicial(){
 
             if (response.ok) {
                 const data = await response.json();
-                console.log(data.data.saldo)
                 setUsuario(data.data.nome);
                 setSaldo(data.data.saldo);
             }
@@ -72,7 +71,7 @@ export default function PaginaInicial(){
                         Realizar Aposta
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity className="bg-white w-full flex h-10 justify-center items-center rounded-xl mt-10 mb-10">
+                <TouchableOpacity onPress={() => navigation.navigate("ConsultaApostas")} className="bg-white w-full flex h-10 justify-center items-center rounded-xl mt-10 mb-10">
                     <Text className="font-bold text-xl">
                         Consultar Apostas
                     </Text>

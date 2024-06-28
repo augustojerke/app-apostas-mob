@@ -5,4 +5,5 @@ export type RootStackParamList = {
    Saldo: { processo: number };
    Eventos: undefined;
    Aposta: { evento: number }
+   ConsultaApostas: undefined
  };

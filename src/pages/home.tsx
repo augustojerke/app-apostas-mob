@@ -5,6 +5,7 @@ import { TouchableOpacity } from "react-native"
 import { useState } from "react"
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from "../types/types"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Home(){
 
@@ -15,7 +16,7 @@ export default function Home(){
 
     async function logar() {
         try {
-            const response = await fetch("http://172.30.48.1:3334/loginUsuario", {
+            const response = await fetch("http://172.26.176.1:3334/loginUsuario", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -30,6 +31,7 @@ export default function Home(){
             if (response.ok) {
                 const data = await response.json();
                 if(data.token){
+                    await AsyncStorage.setItem("id", data.id.toString());
                     navigation.navigate("PaginaInicial");
                 }
                 else{

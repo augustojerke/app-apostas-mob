@@ -10,6 +10,7 @@ import { StatusBar } from 'react-native';
 import Saldo from './src/pages/saldo';
 import Eventos from './src/pages/eventos';
 import Aposta from './src/pages/aposta';
+import ConsultaApostas from './src/pages/consulta-apostas';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -28,6 +29,7 @@ export default function App() {
         <Stack.Screen name="Saldo" component={Saldo} options={{ headerShown: false }}/>
         <Stack.Screen name="Eventos" component={Eventos} options={{ headerShown: false }}/>
         <Stack.Screen name="Aposta" component={Aposta} options={{ headerShown: false }}/>
+        <Stack.Screen name="ConsultaApostas" component={ConsultaApostas} options={{ headerShown: false }}/>
       </Stack.Navigator>
       <StatusBar translucent />
     </NavigationContainer>
